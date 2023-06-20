@@ -17,6 +17,11 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+<!--		The below dependency we need when we setup our database, until the DB connection
+is setup we can just comment this dependency and run our springboot application.
+We will get the whitelabel error page.
+If you try to run the application without commenting this dependency (DB connection is also not setup)
+U will get an error-->
 <!--		<dependency>-->
 <!--			<groupId>org.springframework.boot</groupId>-->
 <!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
