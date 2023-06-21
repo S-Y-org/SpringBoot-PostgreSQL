@@ -1,5 +1,6 @@
 package com.springbootpostresql.SpringBootPostgreSQL.student;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -11,15 +12,17 @@ import java.util.List;
 //When we see the @Service , we know that the class is meant to be a service class
 @Service
 public class StudentService {
+
+    private final  StudentRepository studentRepository;
+
+    @Autowired
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
+
+
     public List<Student> getStudents(){
-        return List.of(
-                new Student(
-                        1L,
-                        "Yeran",
-                        "yk@gmail.com",
-                        LocalDate.of(2000, Month.SEPTEMBER, 21),
-                        21
-                )
-        );
+        return  studentRepository.findAll();
     }
 }//end of StudentService Class
